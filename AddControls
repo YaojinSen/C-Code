@@ -1,0 +1,30 @@
+private void WorkOrderListEdit_Load(object sender, EventArgs e)
+        {
+
+            
+            for (int top = 12,left = 12, i=0;i<dataGridView.ColumnCount;i++)
+            {
+                //生成CheckBox并设置其属性
+                CheckBox checkBox = new CheckBox();
+                checkBox.Tag = this.dataGridView.Columns[i].Name;
+                checkBox.Text = this.dataGridView.Columns[i].HeaderText;
+                checkBox.Checked = this.dataGridView.Columns[i].Visible;
+                checkBox.CheckedChanged += new EventHandler(checkBox_CheckedChanged);
+                
+                checkBox.Location = new Point(left, top);
+                top += 22;                              //更改控件位置
+                checkBox.Visible = true;
+
+                //将生成的CheckBox添加到该窗体
+                this.Controls.Add(checkBox);
+
+            }
+
+            
+        }
+
+        private void checkBox_CheckedChanged(Object sender,EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            this.dataGridView.Columns[checkBox.Tag.ToString()].Visible = checkBox.Checked;
+        }
