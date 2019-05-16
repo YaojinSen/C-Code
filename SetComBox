@@ -1,0 +1,24 @@
+comboBox1.DisplayMember = "Name";
+comboBox1.ValueMember = "Value";
+
+List<Entity.ComBoxItem> comBoxItems = new List<Entity.ComBoxItem>();
+comBoxItems.Add(new Entity.ComBoxItem("心电监护仪", "0"));
+comBoxItems.Add(new Entity.ComBoxItem("血压计", "1"));
+comBoxItems.Add(new Entity.ComBoxItem(" ", " "));
+this.comboBox1.DataSource = comBoxItems;
+
+  class ComBoxItem
+    {
+        public ComBoxItem()
+        {
+        }
+
+        public ComBoxItem( string name , string value)
+        {
+            Value = value;
+            Name = name;
+        }
+
+        public string Value { get; set; }
+        public string Name { get; set; }
+    }
